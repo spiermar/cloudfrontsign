@@ -1,1 +1,1 @@
-web: handson-cloudfront
+web: go-cloudfront-sign
