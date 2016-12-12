@@ -1,0 +1,8 @@
+hash: 5dd4fcfcebf0d3f169781e7d2221b36ce93661a9c71a6ada0f1b6816459de7b7
+updated: 2016-12-11T14:06:41.530534761-08:00
+imports:
+- name: github.com/aws/aws-sdk-go
+  version: 1355b456f6ba4a8453249e0dc7743f16ccac362d
+  subpackages:
+  - service/cloudfront/sign
+testImports: []
