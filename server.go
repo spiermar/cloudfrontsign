@@ -27,9 +27,8 @@ func getCloudfrontSignedUrl(rawURL string) string {
 
 func signHandler(c *gin.Context) {
   rawURL := c.Query("url")
-  s := SignResponse{SignedURL: getCloudfrontSignedUrl(rawURL)}
   c.JSON(200, gin.H{
-      "SignedURL": s,
+      "SignedURL": getCloudfrontSignedUrl(rawURL),
   })
 }
 
