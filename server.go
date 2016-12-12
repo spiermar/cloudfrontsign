@@ -9,10 +9,6 @@ import (
   "gopkg.in/gin-gonic/gin.v1"
 )
 
-type SignResponse struct{
-  SignedURL string
-}
-
 // Sign URL to be valid for 1 hour from now.
 func getCloudfrontSignedUrl(rawURL string) string {
   privKeyReader := strings.NewReader(os.Getenv("AWS_CLOUDFRONT_PRIVATE_KEY"))
