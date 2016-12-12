@@ -1,4 +1,4 @@
-package: bitbucket.org/handsontv/handson-cloudfront
+package: github.com/spiermar/go-cloudfront-sign
 import:
 - package: github.com/aws/aws-sdk-go
   version: ^1.6.2
