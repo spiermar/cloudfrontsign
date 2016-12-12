@@ -5,9 +5,8 @@ import (
   "os"
   "log"
   "time"
-  "net/http"
-  "encoding/json"
   "strings"
+  "gopkg.in/gin-gonic/gin.v1"
 )
 
 type SignResponse struct{
@@ -30,12 +29,12 @@ func getCloudfrontSignedUrl(rawURL string) string {
   return signedURL
 }
 
-func signHandler(w http.ResponseWriter, r *http.Request) {
-  rawURL := r.URL.Query().Get("url")
+func signHandler(c *gin.Context) {
+  rawURL := c.Query("url")
   s := SignResponse{SignedURL: getCloudfrontSignedUrl(rawURL)}
-  enc := json.NewEncoder(w)
-  enc.SetEscapeHTML(false)
-  enc.Encode(s)
+  c.JSON(200, gin.H{
+      "SignedURL": s,
+  })
 }
 
 func main() {
@@ -44,6 +43,7 @@ func main() {
 		log.Fatal("$PORT must be set")
 	}
 
-	http.HandleFunc("/sign/", signHandler)
-	http.ListenAndServe(":" + port, nil)
+  r := gin.Default()
+  r.GET("/sign", signHandler)
+  r.Run(":" + port)
 }
