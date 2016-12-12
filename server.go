@@ -15,7 +15,7 @@ type SignResponse struct{
 }
 
 // Sign URL to be valid for 1 hour from now.
-func getCloudfrontSignedUrl(rawURL string) string {)
+func getCloudfrontSignedUrl(rawURL string) string {
   privKeyReader := strings.NewReader(os.Getenv("AWS_CLOUDFRONT_PRIVATE_KEY"))
   privKey, err := sign.LoadPEMPrivKey(privKeyReader)
   if err != nil {
