@@ -1,1 +1,1 @@
-# go-cloudfront-sign
+# cloudfrontsign

@@ -1,2 +1,2 @@
 build:
-	go build -v -o ${GOPATH}/bin/go-cloudfront-sign .
+	go build -v -o ${GOPATH}/bin/cloudfrontsign .
